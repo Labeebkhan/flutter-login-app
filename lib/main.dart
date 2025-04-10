@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'Home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,6 +38,7 @@ class _HomePageState extends State<HomePage> {
     if (_formKey.currentState!.validate()) {
       if (_emailController.text.trim() == _correctEmail &&
           _passwordController.text.trim() == _correctPassword) {
+        // Show success message
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('✅ Successfully Logged In'),
@@ -44,7 +46,14 @@ class _HomePageState extends State<HomePage> {
             duration: Duration(seconds: 2),
           ),
         );
+
+        // Navigate to Home Screen
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => HomeScreen()),
+        );
       } else {
+        // Show error message
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('❌ Invalid Email or Password'),
