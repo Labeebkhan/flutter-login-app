@@ -36,7 +36,8 @@ class _HomePageState extends State<HomePage> {
 
   void _validateAndLogin() {
     if (_formKey.currentState!.validate()) {
-      if (_emailController.text.trim() == _correctEmail &&
+      if (_emailController.text.trim() ==
+              _correctEmail && //.tostring bhi chalee ga
           _passwordController.text.trim() == _correctPassword) {
         // Show success message
         ScaffoldMessenger.of(context).showSnackBar(
