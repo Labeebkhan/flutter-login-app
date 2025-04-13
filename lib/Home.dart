@@ -15,38 +15,44 @@ class _HomeScreenState extends State<HomeScreen> {
       home: SafeArea(
         child: Scaffold(
           body: Container(
-            padding: const EdgeInsets.only(top: 20, left: 14),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    Text('Hello, Labeeb', style: TextStyle(fontSize: 24)),
-                  ],
-                ),
-                Container(
-                  alignment: Alignment.centerLeft,
-                  child: const Text(
-                    'Welcome Back!',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Color.fromARGB(255, 97, 97, 97),
+            child: Padding(
+              padding: const EdgeInsets.only(top: 20, right: 10, left: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(padding: EdgeInsets.only(top: 6)),
+                        Text(
+                          'Hello, Labeeb',
+                          style: TextStyle(color: Colors.black, fontSize: 21),
+                        ),
+                        SizedBox(height: 5),
+                        Text(
+                          'Welcome to HomeScreen',
+                          style: TextStyle(
+                            color: const Color.fromARGB(255, 119, 119, 119),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                ),
-                Align(
-                  alignment: Alignment.topRight, // 👈 Moves it to the left
-                  child: Container(
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('assets/images/profileUi.jpg'),
-                        fit: BoxFit.cover,
-                      ),
+                  ClipRRect(
+                    //ClipRRect widget to make the image round
+                    borderRadius: BorderRadius.circular(40),
+                    // Half of width/height for round
+                    child: Image.asset(
+                      'assets/images/profileUi.jpg',
+                      width: 60,
+                      height: 60,
+                      fit: BoxFit.cover,
                     ),
-                    width: 80,
-                    height: 80,
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
