@@ -31,7 +31,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         SizedBox(height: 6),
                         Text(
                           'Hello, Labeeb',
-                          style: TextStyle(color: Colors.black, fontSize: 21),
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                         SizedBox(height: 5),
                         Text(
@@ -55,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ], // end of Row children
                 ), // end of Row
 
-                SizedBox(height: 30),
+                SizedBox(height: 50),
 
                 /// Search Bar
                 TextField(
@@ -65,9 +69,19 @@ class _HomeScreenState extends State<HomeScreen> {
                       Icons.search,
                       color: Colors.black,
                       size: 32,
+                    ), //Prefix Icon is placed in start
+                    suffixIcon: IconButton(
+                      onPressed: () {
+                        // open filter options
+                      },
+                      icon: Image.asset(
+                        'assets/images/Tune.png',
+                        width: 50,
+                        height: 50,
+                      ),
                     ),
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(50),
                       borderSide: BorderSide.none,
                     ),
                     fillColor: Color(0xFFF1F1F1),
