@@ -14,18 +14,21 @@ class _HomeScreenState extends State<HomeScreen> {
       debugShowCheckedModeBanner: false,
       home: SafeArea(
         child: Scaffold(
-          body: Container(
-            child: Padding(
-              padding: const EdgeInsets.only(top: 20, right: 10, left: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    child: Column(
+          body: Padding(
+            padding: const EdgeInsets.only(top: 20, right: 10, left: 10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                /// Top Row with greeting text and profile image
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    /// Greeting Text Column
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Padding(padding: EdgeInsets.only(top: 6)),
+                        SizedBox(height: 6),
                         Text(
                           'Hello, Labeeb',
                           style: TextStyle(color: Colors.black, fontSize: 21),
@@ -34,29 +37,48 @@ class _HomeScreenState extends State<HomeScreen> {
                         Text(
                           'Welcome to HomeScreen',
                           style: TextStyle(
-                            color: const Color.fromARGB(255, 119, 119, 119),
+                            color: Color.fromARGB(255, 119, 119, 119),
                           ),
                         ),
-                      ],
+                      ], // end of greeting column children
+                    ), // end of greeting column
+                    /// Profile Image
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(40),
+                      child: Image.asset(
+                        'assets/images/profileUi.jpg',
+                        width: 60,
+                        height: 60,
+                        fit: BoxFit.cover,
+                      ),
+                    ), // end of ClipRRect
+                  ], // end of Row children
+                ), // end of Row
+
+                SizedBox(height: 30),
+
+                /// Search Bar
+                TextField(
+                  decoration: InputDecoration(
+                    hintText: 'Search...',
+                    prefixIcon: Icon(
+                      Icons.search,
+                      color: Colors.black,
+                      size: 32,
                     ),
-                  ),
-                  ClipRRect(
-                    //ClipRRect widget to make the image round
-                    borderRadius: BorderRadius.circular(40),
-                    // Half of width/height for round
-                    child: Image.asset(
-                      'assets/images/profileUi.jpg',
-                      width: 60,
-                      height: 60,
-                      fit: BoxFit.cover,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: BorderSide.none,
                     ),
+                    fillColor: Color(0xFFF1F1F1),
+                    filled: true,
                   ),
-                ],
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
+                ), // end of TextField
+              ], // end of Column children
+            ), // end of Column
+          ), // end of Padding
+        ), // end of Scaffold
+      ), // end of SafeArea
+    ); // end of MaterialApp
+  } // end of build method
+} // end of _HomeScreenState class
